@@ -24,10 +24,79 @@
 	
 	  <div class="h-entry">
 		
-			<h1><a href="https://zeroone.micro.blog/2025/03/23/lists-of-random-things.html">List(s) of Random Things</a></h1>
+			<h1><a href="https://ville.saalo.moi/2025/03/30/are-you-really-using-ai.html">Are you really using AI?</a></h1>
 		
 
-		<a href="https://zeroone.micro.blog/2025/03/23/lists-of-random-things.html" class="u-url"><time class="dt-published" datetime="2025-03-23 17:38:31 &#43;0200">Mar 23, 2025</time></a>
+		<a href="https://ville.saalo.moi/2025/03/30/are-you-really-using-ai.html" class="u-url"><time class="dt-published" datetime="2025-03-30 19:36:09 &#43;0300">Mar 30, 2025</time></a>
+
+		<div class="e-content">
+			 <p>Yesterday I was scrolling through my feed when I came across a <a href="https://www.linkedin.com/feed/update/urn:li:activity:7311760309575151616">short video by Allie K. Miller</a>, who&rsquo;s something of a thought leader in the AI business space. She mentioned that you probably use AI already, but asked if you&rsquo;re <em>really using</em> it? AI can enable so many novel use cases that merely enhancing your old processes is kind of wasting its full potential.</p>
+<p>It made me stop and think. Like many, I&rsquo;ve been using AI tools here and there - asking ChatGPT to help with writing, generating some ideas, maybe summarizing content. But am I actually reimagining how I work?</p>
+<p>Allie mentioned how after 10 years of creating AI content (7 of those without AI tools), she completely rebuilt her workflow. Now she dictates to Otter AI while walking, runs her content through multiple AI systems, and formats everything in Beehiiv with auto-links. More steps, but apparently 80% time saved. That&rsquo;s not just enhancement.</p>
+<p>I wonder if most of us are in that &ldquo;scratching the surface&rdquo; phase with AI that Allie mentions. We&rsquo;re asking AI to help with tasks we already do, rather than rethinking what tasks we should be doing in the first place.</p>
+<p>I&rsquo;m obviously not using AI to its fullest potential either. My current workflows still look pretty much like they did a couple of years ago, with some AI assistance sprinkled in rather than built around them. There&rsquo;s something to think about there.</p>
+<p>(By the way, I don&rsquo;t often subscribe to newsletters, but I do follow Allie&rsquo;s work. If any of this piqued your interest, you might want to check out her newsletter at <a href="https://aiwithallie.beehiiv.com/subscribe?ref=z6NeejKck1">AI with Allie</a>.)</p>
+
+		</div>
+	  </div>
+	
+	  <div class="h-entry">
+		
+			<h1><a href="https://ville.saalo.moi/2025/03/29/vibe-coding-an-ant-colony.html">Vibe coding an ant colony simulator</a></h1>
+		
+
+		<a href="https://ville.saalo.moi/2025/03/29/vibe-coding-an-ant-colony.html" class="u-url"><time class="dt-published" datetime="2025-03-29 18:41:06 &#43;0300">Mar 29, 2025</time></a>
+
+		<div class="e-content">
+			 <p>When it comes to household chores, ironing is one of my favorites as it often allows me to shorten my &ldquo;Watch later&rdquo; playlist (771 videos there as of writing this&hellip;) in YouTube. Last time I did ironing I watched this cool video of an ant colony simulator:</p>
+<!-- raw HTML omitted -->
+<p>The fun thing is that it creates fascinating emergent behavior from a few simple rules. The ants walk around randomly, leaving behind a trail of pheromones like breadcrumbs pointing back home, and when they encounter food, they pick some up and follow the pheromone trail back to the nest. While carrying food they leave behind another type of pheromone that point the ants to the food source.</p>
+<p>This seemed like an interesting exercise in <a href="https://en.wikipedia.org/wiki/Vibe_coding">vibe coding</a> where you just describe your need in your own words and let an AI do the actual programming for you. Vibe coding seems to split the opinions sharply: some find that it makes coding more equal and available to anyone, others loathe the idea of an influx of AI-generated trash.</p>
+<p>My take is that AI is a tool. Just as you don&rsquo;t become a better photographer by buying a more expensive camera, you don&rsquo;t become a (better) programmer by using smarter tools. If you are prone to creating bugs without AI, then AI just enhances your ability to create those bugs faster.</p>
+<p>But sometimes it does not matter. If you&rsquo;re working on a hobby project for yourself and you&rsquo;re only running it locally, then it might as well have all the security holes in the world. However, the situation quickly changes if you deploy your application online and it has a backend to store any kind of a state.</p>
+<p>Also an important reason for this exercise to me, besides wanting to watch virtual ants, was simply to keep up with and assess the current state of AI code generation. We seem to be heading towards ever more advanced and omnipresent AI tools, so it&rsquo;s for the best if you start getting familiar with them already.</p>
+<p>So, how did it go? I&rsquo;ve had successes with vibe coding so I was very optimistic. I wish I could tell you it was a great success: that I gave ChatGPT one prompt and it gave me a working piece of code right away, and then I spent an hour watching my new virtual ant colony do its things. Alas, it was not a great success.</p>
+<p>I started with ChatGPT 4o and described what I wanted to it: a simple ant colony simulator that runs in a browser, and where the ants leave pheromone trails and follow them. Emergent behavior from simple rules, like in the YouTube video I had watched. The system quickly blurted me out an HTML file with Javascript, and it was very promising. The simulation even launched successfully and ants began crawling around! You could even place down the nest, the food, and some walls, though the UI was clunky &ndash; you couldn&rsquo;t even see the item you placed the simulation was running.</p>
+<p>I started to iterate the app with ChatGPT, giving it feedback on what works and what does not and got it improved a bit. Then, however, it seemed as if the system started to lose the context: features that had worked stopped working randomly on new iterations. I restarted the process a few times with new prompts and with the o3-mini-high model, but the results were similar. The AI either went for an overly complex model that didn&rsquo;t work, or left it too simple and added shortcut rules that broke the idea of emergent behavior from simple rules. For example, the AI thought that it would be great if an ant carrying food could head directly to the nest, no need to follow any pheromone trail. Needless to say, that isn&rsquo;t what I want.</p>
+<p>Next I tried with a local Qwen2.5-Coder, running on Ollama and <a href="https://www.openwebui.com/">Open WebUI</a>. This seemed promising at first when Open WebUI even opened a browser frame next to the prompt as the model was coming up with the code. However, that approach didn&rsquo;t work at all when the model split the HTML and the Javascript to different files, and the UI wasn&rsquo;t made for such a complex setup. I might have retried with a refined prompt to ask it to output all the code into the same file, but I think it fell for one of the mistakes I had already seen ChatGPT make. Also I couldn&rsquo;t find a way to restart the preview frame if I lost it due to, say, refreshing the window, which was a let-down.</p>
+<p>Finally I tried the new Google AI Studio with the Gemini 2.5 Pro Experimental 03-25 model. Previously I had tried to just give the models the task to create the app in one go, but now I had a different approach. I told the model I wanted it to make me an ant colony simulator, but not yet: we should plan it first.</p>
+<p>So, next I asked Gemini to explain me like I&rsquo;m five how ants in real life find food and then back to the nest. I adapted this approach from Zach Bart, founder of <a href="https://en.m.wikipedia.org/wiki/Zachtronics">Zachtronics</a>, my favorite puzzle game studio. He mentioned in some interview that when he wants to make a new thematic game about, say, chemistry, he checks the teaching material about that subject available for some 10-15 year old kids, because that hits the sweet spot for what most people would find plausible enough but not overly complicated.</p>
+<p>Gemini provided me with the description, I asked a few clarifying questions, and off we went again. This time I made the additional request to use the <a href="https://p5js.org/">p5.js</a> library, which is apparently very popular with these kind of apps requiring simple graphics. Unfortunately, Gemini&rsquo;s result was the only one that didn&rsquo;t do anything at all once run! I quickly debugged it having an invalid reference to the HTML element that was supposed to host the arena, though, and again the ants started crawling. But, long story short, Gemini made roughly the same mistakes that ChatGPT had made, like giving the ants a magical compass pointing to the nest, despite explicitly being told to have them follow the pheromone trails.</p>
+<p>In the end this was all about the journey, not the end result, so I don&rsquo;t mind not having my own ant colony simulator. Key takeaways:</p>
+<ul>
+<li>It&rsquo;s cumbersome when you need to copy-paste generated code around. The generation should be integrated directly into your actual development environment. You can even do all this with your phone only, but that is <em>very</em> cumbersome.</li>
+<li>If you try to avoid coding, you&rsquo;ll just end up debugging someone else&rsquo;s (the AI&rsquo;s) code. I, for one, usually prefer writing new code to debugging old one. And when the code is not made by yourself, you don&rsquo;t have a mental model of it, so debugging takes a lot of time.</li>
+<li>The technology is advancing fast. I have no doubt that some other model could&rsquo;ve successfully created a proper ant colony simulator already, or that the models I tried now will be able to do it in a year.</li>
+</ul>
+<p>&hellip;and indeed I hope to revisit this topic in the future.</p>
+
+		</div>
+	  </div>
+	
+	  <div class="h-entry">
+		
+			<h1><a href="https://ville.saalo.moi/2025/03/26/finished-reading-the-colour-of.html">Terry Pratchett: The Colour of Magic</a></h1>
+		
+
+		<a href="https://ville.saalo.moi/2025/03/26/finished-reading-the-colour-of.html" class="u-url"><time class="dt-published" datetime="2025-03-26 20:19:51 &#43;0300">Mar 26, 2025</time></a>
+
+		<div class="e-content">
+			 <p>Finished reading: <a href="https://micro.blog/books/9781407034379">The Colour Of Magic</a> by Terry Pratchett 📚</p>
+<p>According to a legend, somewhere on the far side of the Disc, beyond the great sea, lies the Counterweight Continent. Since it&rsquo;s assumed to balance the Disc’s other landmasses, yet appears relatively small, it’s believed to consist largely of heavy gold. Few sane people, of course, believe this story — until one day, a ship sailing up the smelly Morpork river brings a Tourist to the shores of Ankh-Morpork.</p>
+<p>The locals don’t understand what a &ldquo;tourist&rdquo; is, but quickly deduce it means roughly the same as &ldquo;idiot&rdquo;. The man dresses oddly, acts strangely, and carries an absurd amount of gold — whose value he doesn’t seem to grasp. He’s also accompanied by a sentient pearwood chest, the Luggage, which is generally docile but turns into an unstoppable, murderous beast if its master is threatened.</p>
+<p>Rincewind, a wizard who failed utterly at wizardry and is mostly a coward — though otherwise fairly clever — finds that he can speak the tourist’s language. The tourist, Twoflower, hires Rincewind as his guide. Soon, Ankh-Morpork is entirely ablaze, and Rincewind and Twoflower are fleeing by land, sea, and air.</p>
+<p>The Colour of Magic launched the now-famous Discworld series in 1983, and over thirty novels have followed. Quite the achievement, especially considering this book alone is so packed with ideas and events that it feels like Pratchett wanted to include every concept he had.</p>
+<p>I originally borrowed the book for my second grader, but after he found it too confusing after the first couple dozen pages, I ended up reading it myself. I’ve probably read it long ago, but Pratchett’s absurd British humor still hits the mark for me — and presumably for other fans of Monty Python and Douglas Adams as well.</p>
+
+		</div>
+	  </div>
+	
+	  <div class="h-entry">
+		
+			<h1><a href="https://ville.saalo.moi/2025/03/23/lists-of-random-things.html">List(s) of Random Things</a></h1>
+		
+
+		<a href="https://ville.saalo.moi/2025/03/23/lists-of-random-things.html" class="u-url"><time class="dt-published" datetime="2025-03-23 18:38:31 &#43;0300">Mar 23, 2025</time></a>
 
 		<div class="e-content">
 			 <p>About a week ago I was exploring other random blogs when I came across the <a href="https://heydingus.net/blog/2025/3/7-things-this-week-172">7 Things This Week [#172]</a> post by Jarrod Blundy. What caught my eye was the number on the title: Jarrod has been persistently listing seven things each week for more than three years already! In this day and age of single-click fire-and-forget retweets I find it admirable that someone can resist that urge to share the links immediately and do instead a little bit of curating, even adding a sentence or two of their own justifying why a particular link is interesting.</p>
@@ -46,10 +115,10 @@
 	
 	  <div class="h-entry">
 		
-			<h1><a href="https://zeroone.micro.blog/2025/03/22/star-wars-episode-iv-a.html">Star Wars Episode IV: A New Hope in 100 words</a></h1>
+			<h1><a href="https://ville.saalo.moi/2025/03/22/star-wars-episode-iv-a.html">Star Wars Episode IV: A New Hope in 100 words</a></h1>
 		
 
-		<a href="https://zeroone.micro.blog/2025/03/22/star-wars-episode-iv-a.html" class="u-url"><time class="dt-published" datetime="2025-03-22 20:34:45 &#43;0200">Mar 22, 2025</time></a>
+		<a href="https://ville.saalo.moi/2025/03/22/star-wars-episode-iv-a.html" class="u-url"><time class="dt-published" datetime="2025-03-22 21:34:45 &#43;0300">Mar 22, 2025</time></a>
 
 		<div class="e-content">
 			 <p>I figured it would be an interesting little challenge to condense the plot of the original <em>Star Wars</em> into a very short format, but with as many spoilers as possible. I settled for a limit of one hundred words. Here goes; maybe you can use it as a refresher if you haven&rsquo;t seen the movie in a while, but quit reading now if you haven&rsquo;t seen it and want to watch and fully enjoy it later: 🍿</p>
@@ -61,10 +130,10 @@
 	
 	  <div class="h-entry">
 		
-			<h1><a href="https://zeroone.micro.blog/2025/03/20/vivaldi-browser.html">Vivaldi browser</a></h1>
+			<h1><a href="https://ville.saalo.moi/2025/03/20/vivaldi-browser.html">Vivaldi browser</a></h1>
 		
 
-		<a href="https://zeroone.micro.blog/2025/03/20/vivaldi-browser.html" class="u-url"><time class="dt-published" datetime="2025-03-20 16:33:04 &#43;0200">Mar 20, 2025</time></a>
+		<a href="https://ville.saalo.moi/2025/03/20/vivaldi-browser.html" class="u-url"><time class="dt-published" datetime="2025-03-20 17:33:04 &#43;0300">Mar 20, 2025</time></a>
 
 		<div class="e-content">
 			 <p>Around the turn of the millennium the <a href="https://en.wikipedia.org/wiki/Browser_wars">browser wars</a> were a thing. The first browser war saw Netscape Navigator unsuccessfully defend against the new Microsoft Internet Explorer. After a few years the remains of Netscape Navigator were forged into a new browser called Phoenix, soon renamed to Firebird, and finally to Firefox. I, however, stayed strongly in camp Opera during this time.</p>
@@ -79,10 +148,10 @@
 	
 	  <div class="h-entry">
 		
-			<h1><a href="https://zeroone.micro.blog/2025/03/18/kagi-search.html">Kagi Search</a></h1>
+			<h1><a href="https://ville.saalo.moi/2025/03/18/kagi-search.html">Kagi Search</a></h1>
 		
 
-		<a href="https://zeroone.micro.blog/2025/03/18/kagi-search.html" class="u-url"><time class="dt-published" datetime="2025-03-18 00:39:29 &#43;0200">Mar 18, 2025</time></a>
+		<a href="https://ville.saalo.moi/2025/03/18/kagi-search.html" class="u-url"><time class="dt-published" datetime="2025-03-18 01:39:29 &#43;0300">Mar 18, 2025</time></a>
 
 		<div class="e-content">
 			 <p>About three months ago I ditched Google as my primary search engine and started using <a href="https://kagi.com/">Kagi</a> instead &ndash; and haven&rsquo;t looked back.</p>
@@ -97,10 +166,10 @@
 	
 	  <div class="h-entry">
 		
-			<h1><a href="https://zeroone.micro.blog/2025/03/16/caffeine.html">Caffeine</a></h1>
+			<h1><a href="https://ville.saalo.moi/2025/03/16/caffeine.html">Caffeine</a></h1>
 		
 
-		<a href="https://zeroone.micro.blog/2025/03/16/caffeine.html" class="u-url"><time class="dt-published" datetime="2025-03-16 22:26:32 &#43;0200">Mar 16, 2025</time></a>
+		<a href="https://ville.saalo.moi/2025/03/16/caffeine.html" class="u-url"><time class="dt-published" datetime="2025-03-16 22:26:32 &#43;0200">Mar 16, 2025</time></a>
 
 		<div class="e-content">
 			 <p>There is a common misconception that energy drinks have a particularly high caffeine concentration. Often the people who fuss over this are coffee drinkers themselves.</p>
@@ -159,10 +228,10 @@
 	
 	  <div class="h-entry">
 		
-			<h1><a href="https://zeroone.micro.blog/2025/03/16/gemini-protocol.html">Gemini protocol</a></h1>
+			<h1><a href="https://ville.saalo.moi/2025/03/16/gemini-protocol.html">Gemini protocol</a></h1>
 		
 
-		<a href="https://zeroone.micro.blog/2025/03/16/gemini-protocol.html" class="u-url"><time class="dt-published" datetime="2025-03-16 20:07:05 &#43;0200">Mar 16, 2025</time></a>
+		<a href="https://ville.saalo.moi/2025/03/16/gemini-protocol.html" class="u-url"><time class="dt-published" datetime="2025-03-16 21:07:05 &#43;0300">Mar 16, 2025</time></a>
 
 		<div class="e-content">
 			 <p>The other day I was browsing some random Micro.blog blogs when I came across an <a href="https://heyloura.com/2025/03/11/coding-adventure-using-deno-and.html">interesting post about Gemini in the Hey Loura! blog</a>. Gemini in this case does not refer to Google&rsquo;s AI service but an application layer internet protocol developed quite recently, in 2019.</p>
@@ -176,10 +245,10 @@
 	
 	  <div class="h-entry">
 		
-			<h1><a href="https://zeroone.micro.blog/2025/03/09/esc.html">ESC25</a></h1>
+			<h1><a href="https://ville.saalo.moi/2025/03/09/esc.html">ESC25</a></h1>
 		
 
-		<a href="https://zeroone.micro.blog/2025/03/09/esc.html" class="u-url"><time class="dt-published" datetime="2025-03-09 21:26:47 &#43;0200">Mar 9, 2025</time></a>
+		<a href="https://ville.saalo.moi/2025/03/09/esc.html" class="u-url"><time class="dt-published" datetime="2025-03-09 21:26:47 &#43;0200">Mar 9, 2025</time></a>
 
 		<div class="e-content">
 			 <p>Last night it was confirmed that the band KAJ would represent Sweden in this year&rsquo;s Eurovision Song Contest. This is funny, because KAJ is, in fact, a Finnish band, so in a sense Finland now has two entries in this year&rsquo;s contest! 😁 KAJ&rsquo;s song is called <em><a href="https://en.wikipedia.org/wiki/Bara_bada_bastu">Bara bada bastu</a></em>, and Finland is sending Erika to the contest with <em><a href="https://en.wikipedia.org/wiki/Ich_komme">Ich komme</a></em>:</p>
@@ -191,10 +260,10 @@
 	
 	  <div class="h-entry">
 		
-			<h1><a href="https://zeroone.micro.blog/2025/03/07/energy-drinks.html">Energy drinks</a></h1>
+			<h1><a href="https://ville.saalo.moi/2025/03/07/energy-drinks.html">Energy drinks</a></h1>
 		
 
-		<a href="https://zeroone.micro.blog/2025/03/07/energy-drinks.html" class="u-url"><time class="dt-published" datetime="2025-03-07 23:07:30 &#43;0200">Mar 7, 2025</time></a>
+		<a href="https://ville.saalo.moi/2025/03/07/energy-drinks.html" class="u-url"><time class="dt-published" datetime="2025-03-07 23:07:30 &#43;0200">Mar 7, 2025</time></a>
 
 		<div class="e-content">
 			 <p>I&rsquo;m in the habit of taking a photo of each new energy drink I try. At this point of I can make a nice 4x4 collage out of the ones I&rsquo;ve tried this year, and I even had to leave one out.</p>
@@ -205,10 +274,10 @@
 	
 	  <div class="h-entry">
 		
-			<h1><a href="https://zeroone.micro.blog/2025/03/06/helsinki-central-railway-station-at.html">Helsinki central railway station at dusk</a></h1>
+			<h1><a href="https://ville.saalo.moi/2025/03/06/helsinki-central-railway-station-at.html">Helsinki central railway station at dusk</a></h1>
 		
 
-		<a href="https://zeroone.micro.blog/2025/03/06/helsinki-central-railway-station-at.html" class="u-url"><time class="dt-published" datetime="2025-03-06 20:29:46 &#43;0200">Mar 6, 2025</time></a>
+		<a href="https://ville.saalo.moi/2025/03/06/helsinki-central-railway-station-at.html" class="u-url"><time class="dt-published" datetime="2025-03-06 20:29:46 &#43;0200">Mar 6, 2025</time></a>
 
 		<div class="e-content">
 			 <p>Helsinki central railway station at dusk:
@@ -220,10 +289,10 @@
 	
 	  <div class="h-entry">
 		
-			<h1><a href="https://zeroone.micro.blog/2025/03/03/th-academy-awards.html">97th Academy Awards</a></h1>
+			<h1><a href="https://ville.saalo.moi/2025/03/03/th-academy-awards.html">97th Academy Awards</a></h1>
 		
 
-		<a href="https://zeroone.micro.blog/2025/03/03/th-academy-awards.html" class="u-url"><time class="dt-published" datetime="2025-03-03 06:12:58 &#43;0200">Mar 3, 2025</time></a>
+		<a href="https://ville.saalo.moi/2025/03/03/th-academy-awards.html" class="u-url"><time class="dt-published" datetime="2025-03-03 06:12:58 &#43;0200">Mar 3, 2025</time></a>
 
 		<div class="e-content">
 			 <p>I&rsquo;ve watched the Oscars live broadcast close to twenty times now, and I&rsquo;d argue that&rsquo;s no mean feat, as they are aired here in Finland in the middle of the night. I also post my observations about the show to Facebook every year,  and several of my friends there have indicated, either offline or online, that they always look forward to my recap. Waking up in the middle of the night to watch the Oscars feels like madness already, but tradition is tradition! The best way to stay awake is to keep eating snacks. 🍿 The following is a summary of my live observations.</p>
@@ -258,10 +327,10 @@
 	
 	  <div class="h-entry">
 		
-			<h1><a href="https://zeroone.micro.blog/2025/03/02/wordle.html">Wordle</a></h1>
+			<h1><a href="https://ville.saalo.moi/2025/03/02/wordle.html">Wordle</a></h1>
 		
 
-		<a href="https://zeroone.micro.blog/2025/03/02/wordle.html" class="u-url"><time class="dt-published" datetime="2025-03-02 00:10:45 &#43;0200">Mar 2, 2025</time></a>
+		<a href="https://ville.saalo.moi/2025/03/02/wordle.html" class="u-url"><time class="dt-published" datetime="2025-03-02 00:10:45 &#43;0200">Mar 2, 2025</time></a>
 
 		<div class="e-content">
 			 <p>Today I reached a streak of 100 in <a href="https://www.nytimes.com/games/wordle/index.html">Wordle</a>. 😃</p>
@@ -275,7 +344,7 @@
 	  <div class="h-entry">
 		
 
-		<a href="https://zeroone.micro.blog/2025/02/28/currently-reading-the-praised-the.html" class="u-url"><time class="dt-published" datetime="2025-02-28 23:28:38 &#43;0200">Feb 28, 2025</time></a>
+		<a href="https://ville.saalo.moi/2025/02/28/currently-reading-the-praised-the.html" class="u-url"><time class="dt-published" datetime="2025-02-28 23:28:38 &#43;0200">Feb 28, 2025</time></a>
 
 		<div class="e-content">
 			 <p>Currently reading: <a href="https://trepo.tuni.fi/handle/10024/120127">The Praised, The Loved, The Deplored, The Forgotten: A View into the Wide History of Finnish Games</a> by Kultima, Annakaisa; Peltokangas, Jouni 📚</p>
@@ -290,10 +359,10 @@
 	
 	  <div class="h-entry">
 		
-			<h1><a href="https://zeroone.micro.blog/2025/02/27/clash-royale.html">Clash Royale</a></h1>
+			<h1><a href="https://ville.saalo.moi/2025/02/27/clash-royale.html">Clash Royale</a></h1>
 		
 
-		<a href="https://zeroone.micro.blog/2025/02/27/clash-royale.html" class="u-url"><time class="dt-published" datetime="2025-02-27 18:27:13 &#43;0200">Feb 27, 2025</time></a>
+		<a href="https://ville.saalo.moi/2025/02/27/clash-royale.html" class="u-url"><time class="dt-published" datetime="2025-02-27 19:27:13 &#43;0300">Feb 27, 2025</time></a>
 
 		<div class="e-content">
 			 <p><a href="https://en.wikipedia.org/wiki/Supercell_(company)">Supercell</a> is a pretty successful Finnish mobile game company. I have been enjoying Clash Royale in particular. It&rsquo;s a real time game where you have a deck of cards that can bring units to the battle arena, and with them you try to destroy your opponent&rsquo;s King Tower. Cards are played with elixir that regenerates all the time, more or less slowly, depending on the game mode.</p>
@@ -307,10 +376,10 @@
 	
 	  <div class="h-entry">
 		
-			<h1><a href="https://zeroone.micro.blog/2025/02/26/github.html">GitHub</a></h1>
+			<h1><a href="https://ville.saalo.moi/2025/02/26/github.html">GitHub</a></h1>
 		
 
-		<a href="https://zeroone.micro.blog/2025/02/26/github.html" class="u-url"><time class="dt-published" datetime="2025-02-26 18:03:02 &#43;0200">Feb 26, 2025</time></a>
+		<a href="https://ville.saalo.moi/2025/02/26/github.html" class="u-url"><time class="dt-published" datetime="2025-02-26 19:03:02 &#43;0300">Feb 26, 2025</time></a>
 
 		<div class="e-content">
 			 <p>My GitHub account is located at <a href="https://github.com/ZeroOne3010.">github.com/ZeroOne30&hellip;</a> Micro.blog claims these posts can be synced there automatically. Let&rsquo;s see if this triggers the sync! 💻</p>
@@ -320,8 +389,10 @@
 	
 	  <div class="h-entry">
 		
+			<h1><a href="https://ville.saalo.moi/2025/02/26/the-number-has-come-loose.html">Watch woes</a></h1>
+		
 
-		<a href="https://zeroone.micro.blog/2025/02/26/the-number-has-come-loose.html" class="u-url"><time class="dt-published" datetime="2025-02-26 15:47:44 &#43;0200">Feb 26, 2025</time></a>
+		<a href="https://ville.saalo.moi/2025/02/26/the-number-has-come-loose.html" class="u-url"><time class="dt-published" datetime="2025-02-26 16:47:44 &#43;0300">Feb 26, 2025</time></a>
 
 		<div class="e-content">
 			 <p>The number 6 has come loose in my watch. I got a quote for 60-80 € for fixing it. 🤯 That exceeded my expectations 3-10x. I&rsquo;m still considering what to do&hellip; 😞</p>
@@ -333,7 +404,7 @@
 	  <div class="h-entry">
 		
 
-		<a href="https://zeroone.micro.blog/2025/02/25/currently-reading-the-end-of.html" class="u-url"><time class="dt-published" datetime="2025-02-25 23:00:04 &#43;0200">Feb 25, 2025</time></a>
+		<a href="https://ville.saalo.moi/2025/02/25/currently-reading-the-end-of.html" class="u-url"><time class="dt-published" datetime="2025-02-25 23:00:04 &#43;0200">Feb 25, 2025</time></a>
 
 		<div class="e-content">
 			 <p>Currently reading: <a href="https://micro.blog/books/9781982103552">The End of Everything</a> by Katie Mack 📚</p>
@@ -344,10 +415,10 @@
 	
 	  <div class="h-entry">
 		
-			<h1><a href="https://zeroone.micro.blog/2025/02/25/cheated-by-intel.html">💻 Cheated by Intel</a></h1>
+			<h1><a href="https://ville.saalo.moi/2025/02/25/cheated-by-intel.html">💻 Cheated by Intel</a></h1>
 		
 
-		<a href="https://zeroone.micro.blog/2025/02/25/cheated-by-intel.html" class="u-url"><time class="dt-published" datetime="2025-02-25 08:32:29 &#43;0200">Feb 25, 2025</time></a>
+		<a href="https://ville.saalo.moi/2025/02/25/cheated-by-intel.html" class="u-url"><time class="dt-published" datetime="2025-02-25 09:32:29 &#43;0300">Feb 25, 2025</time></a>
 
 		<div class="e-content">
 			 <p>I feel rather cheated by Intel&hellip; I got a new desktop PC in 2020 with an i7-10700K CPU that uses the then-brand-new LGA1200 socket, thinking that as it was brand new, it would have a long and happy life ahead of it and I could safely just upgrade the CPU in the future.</p>
@@ -359,11 +430,13 @@
 	
 	  <div class="h-entry">
 		
+			<h1><a href="https://ville.saalo.moi/2025/02/24/hello-people-i-just-learned.html">Hello! </a></h1>
+		
 
-		<a href="https://zeroone.micro.blog/2025/02/24/hello-people-i-just-learned.html" class="u-url"><time class="dt-published" datetime="2025-02-24 22:31:29 &#43;0200">Feb 24, 2025</time></a>
+		<a href="https://ville.saalo.moi/2025/02/24/hello-people-i-just-learned.html" class="u-url"><time class="dt-published" datetime="2025-02-24 22:31:29 &#43;0200">Feb 24, 2025</time></a>
 
 		<div class="e-content">
-			 <p>Hello people! 👋 I just learned about this platform from the @Hanselminutes.com podcast and decided to join. 🙂</p>
+			 <p>Hello people! 👋 I just learned about the Micro.blog platform from the <a href="https://www.hanselminutes.com/983/microblog-and-owning-your-words-with-manton-reece">Hanselminutes podcast</a> and decided to join. 🙂</p>
 
 		</div>
 	  </div>
