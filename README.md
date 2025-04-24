@@ -1,1 +1,1 @@
-Automatic weekly backups of my [Micro.blog](https://micro.blog) blog at https://ZeroOne.micro.blog.
+Automatic weekly backups of my [Micro.blog](https://micro.blog) blog at https://ville.saalo.moi.
