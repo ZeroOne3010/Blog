@@ -24,6 +24,78 @@
 	
 	  <div class="h-entry">
 		
+			<h1><a href="https://ville.saalo.moi/2026/03/27/bluesky-bot-to-report-speeding.html">Bluesky bot to report speeding buses</a></h1>
+		
+
+		<a href="https://ville.saalo.moi/2026/03/27/bluesky-bot-to-report-speeding.html" class="u-url"><time class="dt-published" datetime="2026-03-27 19:22:32 &#43;0200">Mar 27, 2026</time></a>
+
+		<div class="e-content">
+			 <p>The people in my neighborhood Facebook group are often worried about cars speeding on the main road that goes through the area. While I can&rsquo;t do much about that, I realized that I can at least monitor how fast the buses are going and make that visible, thanks to a <a href="https://digitransit.fi/en/developers/apis/5-realtime-api/vehicle-positions/high-frequency-positioning/">realtime high-frequency positioning API</a> provided by HSL that runs the public transport system here. This was around June 2020. I implemented a simple Java application to monitor those buses on the street, but the <a href="https://mqtt.org/">MQTT</a> library I used proved unreliable, so I put the project to slow backburner. My idea was to eventually make it into a Twitter bot, but I never got that far back then.</p>
+<p>Fast forward a couple of years to September 2022, two months before ChatGPT was launched. TypeScript was all the rage back then but I had not had the opportunity to use it at work yet, so it clicked to me that I could retry my old bus speed tracker with TypeScript.</p>
+<p>Fun fact and an absolutely amazing coincidence: just when I had opened the editor to start the project my colleague, with whom I had briefly discussed during my previous attempt, sent me a message along the lines of &ldquo;Hey, have you seen this new Twitter bot? It&rsquo;s tracking bus speeds on some street in Vantaa! Weren&rsquo;t you going to do something similar?&rdquo;.</p>
+<p>It was a bit bitter moment to have someone else do it first, but I quickly decided that since it was coded in Python, the world could fit another bot like that but made with TypeScript. I don&rsquo;t remember the exact timeline but I think the project went pretty smoothly and I got the thing to post bus speed graphs to Twitter quickly enough.</p>
+<p>The bot then ran from my laptop for few months. Elon Musk notably completed <a href="https://en.wikipedia.org/wiki/Acquisition_of_Twitter_by_Elon_Musk">his acquisition of Twitter</a> at the end of October 2022, and a few months later he revoked access from all bots. I did not feel like contributing to his platform anymore and never reacquired an access token for my bot, so backburner it was again.</p>
+<p>Now, fast forward once more, this time to the beginning of January 2026. I had had it in my mind that I could have the bot run on some other platform, but now the time was ripe: I had seen at work that AI agents had become rather good, so I installed the ChatGPT extension to VS Code and gave it the task of converting my Twitter bot into a <a href="https://en.wikipedia.org/wiki/Bluesky">Bluesky</a> bot, and it did it in one shot!</p>
+<p>Next, I wanted the bot to be hosted somewhere in the cloud. I had Chad do some research for me and landed on a provider called <a href="https://fly.io/">Fly.io</a>. It&rsquo;s a very straight forward service that almost automatically deploys a GitHub repository for you. In my case I had to tweak the default settings a bit as I wasn&rsquo;t going to expose a web service, but overall the setup process was pleasurable enough and way better productized than, say, hosting your little app on AWS. (A great benefit with Fly.io is that they weave bills less than $5 per month for hobbyists, and on the minimal host that runs my bot the bill comes somewhere around $2 per month, so it&rsquo;s free for me!)</p>
+<p>So anyway, encouraged with this sudden success I was quickly able to add many more features to the bot. You still need to keep an eye on the code quality, as the AI missed some obvious refactoring opportunities, and also with a visual tool like this I soon discovered I needed it to create me some bogus data generator for testing the changes, without having to wait for the next bus! It also did some unnecessary refactoring that I never asked for and didn&rsquo;t want and ended up reverting, but in general I feel it worked really well. (It&rsquo;s to be noted that you can&rsquo;t really blast out new features at work like that because usually new code needs to be reviewed by another person, and there are other factors in play as well, but for a solo developer of a hobby project it&rsquo;s great.)</p>
+<p>The bot&rsquo;s output, updating all the time, can be viewed at its Bluesky account <a href="https://bsky.app/profile/puksunbussit.bluesky.bot">@puksunbussit.bluesky.bot</a>, and the <a href="https://github.com/ZeroOne3010/speeding-hsl-busses">source code is in GitHub</a>. The bot posts in Finnish but you should be able to easily figure out what&rsquo;s going on, and the source code is in English. I think this project shows how easy it is nowadays to do useful little hosted hobby projects, Bluesky bots, and to hopefully shed light into some small issues in the society as well.</p>
+<!-- raw HTML omitted -->
+		</div>
+	  </div>
+	
+	  <div class="h-entry">
+		
+			<h1><a href="https://ville.saalo.moi/2026/03/21/how-to-build-an-airport.html">How to build an airport in TheoTown</a></h1>
+		
+
+		<a href="https://ville.saalo.moi/2026/03/21/how-to-build-an-airport.html" class="u-url"><time class="dt-published" datetime="2026-03-21 18:31:39 &#43;0200">Mar 21, 2026</time></a>
+
+		<div class="e-content">
+			 <p>A while back all the windows in our apartment were replaced, which necessitated that we clear the space in front of the windows. This included the table on which my desktop PC is located and that my kid uses to play <em><a href="https://store.steampowered.com/app/949230/Cities_Skylines_II/">Cities: Skylines II</a></em>, so we needed a temporary replacement city-builder for mobile. I had heard of this game called <em><a href="https://hi.theotown.com">TheoTown</a></em> and went with that, and it turns out it feels immediately familiar for those who have played <a href="https://en.wikipedia.org/wiki/City-building_game">city-builders</a>, especially of the older type like <em><a href="https://en.wikipedia.org/wiki/SimCity_2000">SimCity 2000</a></em>, which is nice.</p>
+<p>In the game I, for some reason, found it very unintuitive on how to build an airport. You cannot just plop it down and be done with it, no, you need to place all the runways and individual buildings separately. So, in case you&rsquo;ve ever wondered how to build an airport in TheoTown, here&rsquo;s a set of detailed instructions on how exactly to do that.</p>
+<p>First, navigate to the Transport menu and the Airport submenu. There, select Airfield and then create some area on your map. Remember, an airport takes a lot of space, but you don&rsquo;t need to get it right the first time, as the buildings will conveniently expand the airfield area:
+<img src="https://ville.saalo.moi/uploads/2026/theotown01.png" alt="TheoTown airfield area."></p>
+<p>Then, build the Tower. Here you can see I&rsquo;ve placed the tower to the corner of the airfield and it has expanded the area even over the road &ndash; which is not a problem. When you&rsquo;re placing the tower some squares around it will have a yellow outline, and those are just the squares that will become Airfield area:
+<img src="https://ville.saalo.moi/uploads/2026/theotown02.png" alt="Airport Tower under construction in TheoTown."></p>
+<p>Then, build an entry. I would place this next to a road, as it allows people to enter the airport. Note that when you&rsquo;ve selected this building the map will display red squares. Do not be alarmed, those are just illustrating the noise. (You should not have residential buildings in noisy areas.)
+<img src="https://ville.saalo.moi/uploads/2026/theotown04.png" alt="Airport Entry being placed in TheoTown. Red squares depict noisy areas."></p>
+<p>Next, you are going to need a Gate. There&rsquo;s a few options, pick any that pleases you. Note that the Gate will need to be connected to a Runway with a Transport road later on, so put it somewhere where it has access to your future Runway. Note, the squares with the yellow outline again depict the area that is going to be extended to become Airfield:
+<img src="https://ville.saalo.moi/uploads/2026/theotown09.png" alt="Airport Gate being placed in TheoTown."></p>
+<p>Once the Gate is completed you will see a red road symbol over it, meaning it&rsquo;s not connected to a Runway (well duh), so let&rsquo;s make a Runway. Select it from the menu and tap somewhere on the map, and it&rsquo;ll look like this:
+<img src="https://ville.saalo.moi/uploads/2026/theotown15.png" alt="Placing a Runway."></p>
+<p>Now this is where it got confusing to me. I&rsquo;ve tapped the square that&rsquo;s now marked with a black-and-white pattern, but there are also rows of squares outlined with yellow and green. The trick is to now tap one of the green squares, because that will give the Runway the width it needs:
+<img src="https://ville.saalo.moi/uploads/2026/theotown15-marked.png" alt="Tap here."></p>
+<p>And voilà:
+<img src="https://ville.saalo.moi/uploads/2026/theotown16.png" alt="Newly created Runway."></p>
+<p>Now create that Transport road between your Gate and Runway. Those you create just like any other roads:
+<img src="https://ville.saalo.moi/uploads/2026/theotown19.png" alt="Transport road created."></p>
+<p>&hellip;And we&rsquo;re still not there yet! Now we need to get planes and assign them to Runways &ndash; or <em>lanes</em>, as they&rsquo;re now called in the setup system. Tap on any of your Airport buildings to open the specialized Airport view:
+<img src="https://ville.saalo.moi/uploads/2026/theotown20.png" alt="The Airport view, pretty empty for now."></p>
+<p>Then unlock a lane:
+<img src="https://ville.saalo.moi/uploads/2026/theotown21.png" alt="The airport view showing one unassigned lane."></p>
+<p>Then click Assign and it takes you to a map where you need to tap your Runway:
+<img src="https://ville.saalo.moi/uploads/2026/theotown22.png" alt="Now tap on a Runway."></p>
+<p>OK, the lane has been assigned to your Runway! Now we&rsquo;re only missing some planes! Tap the Add button with the plane icon on your new lane:
+<img src="https://ville.saalo.moi/uploads/2026/theotown23.png" alt="Lane still needs a plane."></p>
+<p>You&rsquo;ll now see an empty list of planes, so click Add, then buy one of the available planes:
+<img src="https://ville.saalo.moi/uploads/2026/theotown24.png" alt="No planes here yet, add one.">
+<img src="https://ville.saalo.moi/uploads/2026/theotown25.png" alt="Buy a plane."></p>
+<p>After you&rsquo;ve bought a plane, select Use this one:
+<img src="https://ville.saalo.moi/uploads/2026/theotown26.png" alt="A list of planes, with one plane."></p>
+<p>And there you have it, your Airport is actually ready and functional now:
+<img src="https://ville.saalo.moi/uploads/2026/theotown27.png" alt="A properly configured airport."></p>
+<p>Return to the map and wait for a while, you should catch a glimpse of a plane visiting your new airport!
+<img src="https://ville.saalo.moi/uploads/2026/theotown28.png" alt="A plane on the Runway."></p>
+<p>If you check your Financials now, you should see the airport is hopefully making more money than it&rsquo;s spending &ndash; I created it in the sandbox mode with unlimited money so my financials are just theoretical, but if your city has an actual budget then your airport should bring you some money in. In my case the airport brings 2.59KT of income and spends 1.90KT, so it&rsquo;s solidly 0.69KT positive cash flow:
+<img src="https://ville.saalo.moi/uploads/2026/theotown31.png" alt="Airport income.">
+<img src="https://ville.saalo.moi/uploads/2026/theotown32.png" alt="Airport spending."></p>
+<p>Finally, feel free to expand your airport with new gates and runways and planes:
+<img src="https://ville.saalo.moi/uploads/2026/theotown37.png" alt="A new Runway has been built."></p>
+		</div>
+	  </div>
+	
+	  <div class="h-entry">
+		
 			<h1><a href="https://ville.saalo.moi/2026/03/18/the-latest-installment-of-the.html">Richard Osman: The Impossible Fortune</a></h1>
 		
 
