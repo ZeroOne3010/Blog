@@ -24,6 +24,33 @@
 	
 	  <div class="h-entry">
 		
+			<h1><a href="https://ville.saalo.moi/2026/05/09/vibing-a-wardriving-visualizer.html">Vibing a wardriving visualizer</a></h1>
+		
+
+		<a href="https://ville.saalo.moi/2026/05/09/vibing-a-wardriving-visualizer.html" class="u-url"><time class="dt-published" datetime="2026-05-09 00:09:12 &#43;0300">May 9, 2026</time></a>
+
+		<div class="e-content">
+			 <p>A while ago someone was showing off their LEGO creation in my social media feed: a brick-built <a href="https://en.wikipedia.org/wiki/QR_code">QR-code</a> containing the credentials to their WiFi network. People rushed to tell them that they shouldn&rsquo;t share this info publicly, but they appeared unconcerned, for who would actually even know where their network was physically located, right? Can&rsquo;t do any harm to it if you can&rsquo;t find it. But could you? Surely there are databases of networks available online?</p>
+<p>It turns out there are indeed services like <a href="https://wigle.net/">WiGLE</a> that catalogue WiFi access points, Bluetooth devices, and cellphone towers around the world. It relies on people using <a href="https://play.google.com/store/apps/details?id=net.wigle.wigleandroid">their Android app</a> and submitting the found networks to the site&rsquo;s database. Out of curiosity I installed the app and did a bike ride of some 25 km around the city, and much to my surprise logged a whopping 5000 WiFi networks and some 10000 Bluetooth devices! It was a revealing moment when I stopped on a bridge over a highway and looked at the app, and it showed Bluetooth devices with names like Audi, BMW, and Toyota. Almost all new cars can be seen as Bluetooth devices!</p>
+<p>Now, I had collected some sample of networks, but how would I view it? The WiGLE app itself does not provide a map view, so I did what anyone would do these days and vibe-coded my own app. I started by typing a stream of thoughts to ChatGPT: I want it to be a web page, not an app you need to install, and I want it to work fully in the user&rsquo;s browser, not uploading the data to any servers. The app should provide a map with my route and the network observations, along with some playback controls, etc. Chad then turned all this into a proper requirements document that I handed out to the ChatGPT Codex coding agent after creating an empty GitHub repository for the project. Codex crunched the assignment for five minutes and burped out a pull request. I then set GitHub up to automatically publish the project in GitHub Pages and merged the PR, and lo and behold, it actually worked immediately! After exporting my observations out of the WiGLE app I could follow my route and see all the observations on the map.</p>
+<p>From then on I improved the app organically with Codex: I used the app and whenever something felt lacking or started to irk me, I&rsquo;d just create a new prompt and let Codex improve the app for me. One of the very first changes, for example, was to move the playback controls closer to the map. Seems like a no-brainer, but the AI had originally put them further away. Anyway, I added easily many features, such as trimming of empty space from the middle of the timeline for days when I&rsquo;d record in the morning and in the afternoon, and would export the entire day&rsquo;s data out at once. As of writing this post the project&rsquo;s repo has more than 50 commits; usually one PR would consist of one or two, and each commit could contain one or more changes. I felt the cost of experimentation was very low: if I wanted to try something I&rsquo;d just do it, and if it didn&rsquo;t work, I&rsquo;d revert it ten minutes later.</p>
+<p>Now, a word of warning: at least in the European Union we have pretty strict privacy laws in the form of <a href="https://en.wikipedia.org/wiki/General_Data_Protection_Regulation">GDPR</a>. GDPR sets rules on how personal data can be handled. While I don&rsquo;t know if the kind of network information that WiGLE collects counts as personal data per se, I know that people sometimes set their network names to something like &ldquo;Johnson Family WLAN&rdquo;, or &ldquo;Anna&rsquo;s iPhone&rdquo;, and at least names <em>are</em> personal data. That being said, the police of course probably doesn&rsquo;t come knocking if you just observe the networks around you for your own amusement.</p>
+<p>To see what WiGLE knows about your devices or your neighborhood you need to create an account with them. I, for one, also had my own networks and devices removed from WiGLE&rsquo;s database &ndash; there are instructions for that on the site and they&rsquo;ll respect your request, no questions asked. Anyway, for just collecting the data with the app to your phone and for viewing it with my app you don&rsquo;t need an account.</p>
+<p>You can find <a href="https://zeroone3010.github.io/wigle-visualizer/">the app in action here</a> and the <a href="https://github.com/ZeroOne3010/wigle-visualizer">source code is here</a>. Here&rsquo;s an example screenshot:</p>
+<p><img src="https://ville.saalo.moi/uploads/2026/bfbf1b4d1f.jpg" alt="Screenshot of the WiGLE visualizer"></p>
+<p>Now, earlier I mentioned I just exported the observations out of the app. That was something of an oversimplification: the app does allow you to export data easily in a very clean <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV format</a>, but the catch is that it&rsquo;s gzip-compressed, which Android doesn&rsquo;t handle too well. I tried installing an app from the Play Store for decompressing these files, but the <a href="https://en.wikipedia.org/wiki/User_experience">UX</a> of the app was so appalling I ended up uninstalling it and, well, vibe-coding my own gzip decompression app as well. 😅</p>
+<p>This one I wanted to be a native Android app. A very simple one for one single purpose: it should do its job and get out of the way. Codex delivered here as well, even setting up a GitHub action to immediately compile the project into a usable installation package whenever commits were merged to main. I was able to get the app to be registered in the operating system as one that could handle gzip files, so when WiGLE offered to export the file, I could just open it in my app and extract the CSV file within. I call this one Gunzip for &ldquo;Un-gzip&rdquo;. As the name sounds like &ldquo;gunship&rdquo;, I iterated a cool icon with Chad for it:</p>
+<p><img src="https://ville.saalo.moi/uploads/2026/8f3a59a957.jpg" alt="App icon that looks like a folder that looks like a helicopter gunship that has a zipper."></p>
+<p>This app&rsquo;s <a href="https://github.com/ZeroOne3010/android-gunzip">source code lives here</a> and the app looks like this:</p>
+<p><img src="https://ville.saalo.moi/uploads/2026/16326090f4.jpg" alt="Screenshot of Gunzip"></p>
+<p>These examples are strong anecdotal evidence that vibe-coding can work in certain contexts extremely well. I don&rsquo;t recall even looking much into the source of either of those apps. These apps were, however, different from <a href="https://ville.saalo.moi/2026/03/27/bluesky-bot-to-report-speeding.html">my previous vibing experience regarding the Bluesky bot</a>: the bot originated as an artesan coding project so I felt proper ownership towards it. It was as much about the building experience itself as about the end result, so there I wanted to understand all the code that went into the app, even and especially when created by some agent. With the visualizer and Gunzip both were just tools and a means to an end, which was to see the networks on a map. There, I didn&rsquo;t care what the code looked like, as long as I got my results and was able to iterate quickly.</p>
+<p>The title of this post refers to <a href="https://en.wikipedia.org/wiki/Wardriving">wardriving, for which there is a good Wikipedia article</a>. Suffice it to say here that the name actually stems from the cult classic hacker movie <em>WarGames</em>!</p>
+<p>Finally, what about that person who published their WiFi credentials as a LEGO QR-code? Their network was not in the WiGLE database, so they can rest easy &ndash; at least until someone comes close to their house with the app on.</p>
+		</div>
+	  </div>
+	
+	  <div class="h-entry">
+		
 			<h1><a href="https://ville.saalo.moi/2026/05/03/random-things-sunday-vibe-coding.html">Random Things Sunday #15: Vibe coding</a></h1>
 		
 
@@ -171,43 +198,43 @@
 			 <p>A while back all the windows in our apartment were replaced, which necessitated that we clear the space in front of the windows. This included the table on which my desktop PC is located and that my kid uses to play <em><a href="https://store.steampowered.com/app/949230/Cities_Skylines_II/">Cities: Skylines II</a></em>, so we needed a temporary replacement city-builder for mobile. I had heard of this game called <em><a href="https://hi.theotown.com">TheoTown</a></em> and went with that, and it turns out it feels immediately familiar for those who have played <a href="https://en.wikipedia.org/wiki/City-building_game">city-builders</a>, especially of the older type like <em><a href="https://en.wikipedia.org/wiki/SimCity_2000">SimCity 2000</a></em>, which is nice.</p>
 <p>In the game I, for some reason, found it very unintuitive on how to build an airport. You cannot just plop it down and be done with it, no, you need to place all the runways and individual buildings separately. So, in case you&rsquo;ve ever wondered how to build an airport in TheoTown, here&rsquo;s a set of detailed instructions on how exactly to do that.</p>
 <p>First, navigate to the Transport menu and the Airport submenu. There, select Airfield and then create some area on your map. Remember, an airport takes a lot of space, but you don&rsquo;t need to get it right the first time, as the buildings will conveniently expand the airfield area:
-<img src="https://ville.saalo.moi/uploads/2026/theotown01.png" alt="TheoTown airfield area."></p>
+<img src="https://cdn.uploads.micro.blog/208773/2026/theotown01.png" alt="TheoTown airfield area."></p>
 <p>Then, build the Tower. Here you can see I&rsquo;ve placed the tower to the corner of the airfield and it has expanded the area even over the road &ndash; which is not a problem. When you&rsquo;re placing the tower some squares around it will have a yellow outline, and those are just the squares that will become Airfield area:
-<img src="https://ville.saalo.moi/uploads/2026/theotown02.png" alt="Airport Tower under construction in TheoTown."></p>
+<img src="https://cdn.uploads.micro.blog/208773/2026/theotown02.png" alt="Airport Tower under construction in TheoTown."></p>
 <p>Then, build an entry. I would place this next to a road, as it allows people to enter the airport. Note that when you&rsquo;ve selected this building the map will display red squares. Do not be alarmed, those are just illustrating the noise. (You should not have residential buildings in noisy areas.)
-<img src="https://ville.saalo.moi/uploads/2026/theotown04.png" alt="Airport Entry being placed in TheoTown. Red squares depict noisy areas."></p>
+<img src="https://cdn.uploads.micro.blog/208773/2026/theotown04.png" alt="Airport Entry being placed in TheoTown. Red squares depict noisy areas."></p>
 <p>Next, you are going to need a Gate. There&rsquo;s a few options, pick any that pleases you. Note that the Gate will need to be connected to a Runway with a Transport road later on, so put it somewhere where it has access to your future Runway. Note, the squares with the yellow outline again depict the area that is going to be extended to become Airfield:
-<img src="https://ville.saalo.moi/uploads/2026/theotown09.png" alt="Airport Gate being placed in TheoTown."></p>
+<img src="https://cdn.uploads.micro.blog/208773/2026/theotown09.png" alt="Airport Gate being placed in TheoTown."></p>
 <p>Once the Gate is completed you will see a red road symbol over it, meaning it&rsquo;s not connected to a Runway (well duh), so let&rsquo;s make a Runway. Select it from the menu and tap somewhere on the map, and it&rsquo;ll look like this:
-<img src="https://ville.saalo.moi/uploads/2026/theotown15.png" alt="Placing a Runway."></p>
+<img src="https://cdn.uploads.micro.blog/208773/2026/theotown15.png" alt="Placing a Runway."></p>
 <p>Now this is where it got confusing to me. I&rsquo;ve tapped the square that&rsquo;s now marked with a black-and-white pattern, but there are also rows of squares outlined with yellow and green. The trick is to now tap one of the green squares, because that will give the Runway the width it needs:
-<img src="https://ville.saalo.moi/uploads/2026/theotown15-marked.png" alt="Tap here."></p>
+<img src="https://cdn.uploads.micro.blog/208773/2026/theotown15-marked.png" alt="Tap here."></p>
 <p>And voilà:
-<img src="https://ville.saalo.moi/uploads/2026/theotown16.png" alt="Newly created Runway."></p>
+<img src="https://cdn.uploads.micro.blog/208773/2026/theotown16.png" alt="Newly created Runway."></p>
 <p>Now create that Transport road between your Gate and Runway. Those you create just like any other roads:
-<img src="https://ville.saalo.moi/uploads/2026/theotown19.png" alt="Transport road created."></p>
+<img src="https://cdn.uploads.micro.blog/208773/2026/theotown19.png" alt="Transport road created."></p>
 <p>&hellip;And we&rsquo;re still not there yet! Now we need to get planes and assign them to Runways &ndash; or <em>lanes</em>, as they&rsquo;re now called in the setup system. Tap on any of your Airport buildings to open the specialized Airport view:
-<img src="https://ville.saalo.moi/uploads/2026/theotown20.png" alt="The Airport view, pretty empty for now."></p>
+<img src="https://cdn.uploads.micro.blog/208773/2026/theotown20.png" alt="The Airport view, pretty empty for now."></p>
 <p>Then unlock a lane:
-<img src="https://ville.saalo.moi/uploads/2026/theotown21.png" alt="The airport view showing one unassigned lane."></p>
+<img src="https://cdn.uploads.micro.blog/208773/2026/theotown21.png" alt="The airport view showing one unassigned lane."></p>
 <p>Then click Assign and it takes you to a map where you need to tap your Runway:
-<img src="https://ville.saalo.moi/uploads/2026/theotown22.png" alt="Now tap on a Runway."></p>
+<img src="https://cdn.uploads.micro.blog/208773/2026/theotown22.png" alt="Now tap on a Runway."></p>
 <p>OK, the lane has been assigned to your Runway! Now we&rsquo;re only missing some planes! Tap the Add button with the plane icon on your new lane:
-<img src="https://ville.saalo.moi/uploads/2026/theotown23.png" alt="Lane still needs a plane."></p>
+<img src="https://cdn.uploads.micro.blog/208773/2026/theotown23.png" alt="Lane still needs a plane."></p>
 <p>You&rsquo;ll now see an empty list of planes, so click Add, then buy one of the available planes:
-<img src="https://ville.saalo.moi/uploads/2026/theotown24.png" alt="No planes here yet, add one.">
-<img src="https://ville.saalo.moi/uploads/2026/theotown25.png" alt="Buy a plane."></p>
+<img src="https://cdn.uploads.micro.blog/208773/2026/theotown24.png" alt="No planes here yet, add one.">
+<img src="https://cdn.uploads.micro.blog/208773/2026/theotown25.png" alt="Buy a plane."></p>
 <p>After you&rsquo;ve bought a plane, select Use this one:
-<img src="https://ville.saalo.moi/uploads/2026/theotown26.png" alt="A list of planes, with one plane."></p>
+<img src="https://cdn.uploads.micro.blog/208773/2026/theotown26.png" alt="A list of planes, with one plane."></p>
 <p>And there you have it, your Airport is actually ready and functional now:
-<img src="https://ville.saalo.moi/uploads/2026/theotown27.png" alt="A properly configured airport."></p>
+<img src="https://cdn.uploads.micro.blog/208773/2026/theotown27.png" alt="A properly configured airport."></p>
 <p>Return to the map and wait for a while, you should catch a glimpse of a plane visiting your new airport!
-<img src="https://ville.saalo.moi/uploads/2026/theotown28.png" alt="A plane on the Runway."></p>
+<img src="https://cdn.uploads.micro.blog/208773/2026/theotown28.png" alt="A plane on the Runway."></p>
 <p>If you check your Financials now, you should see the airport is hopefully making more money than it&rsquo;s spending &ndash; I created it in the sandbox mode with unlimited money so my financials are just theoretical, but if your city has an actual budget then your airport should bring you some money in. In my case the airport brings 2.59KT of income and spends 1.90KT, so it&rsquo;s solidly 0.69KT positive cash flow:
-<img src="https://ville.saalo.moi/uploads/2026/theotown31.png" alt="Airport income.">
-<img src="https://ville.saalo.moi/uploads/2026/theotown32.png" alt="Airport spending."></p>
+<img src="https://cdn.uploads.micro.blog/208773/2026/theotown31.png" alt="Airport income.">
+<img src="https://cdn.uploads.micro.blog/208773/2026/theotown32.png" alt="Airport spending."></p>
 <p>Finally, feel free to expand your airport with new gates and runways and planes:
-<img src="https://ville.saalo.moi/uploads/2026/theotown37.png" alt="A new Runway has been built."></p>
+<img src="https://cdn.uploads.micro.blog/208773/2026/theotown37.png" alt="A new Runway has been built."></p>
 		</div>
 	  </div>
 	
