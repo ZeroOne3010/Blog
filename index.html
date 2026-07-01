@@ -24,6 +24,54 @@
 	
 	  <div class="h-entry">
 		
+			<h1><a href="https://ville.saalo.moi/2026/07/01/the-pitt.html">The Pitt</a></h1>
+		
+
+		<a href="https://ville.saalo.moi/2026/07/01/the-pitt.html" class="u-url"><time class="dt-published" datetime="2026-07-01 23:44:09 &#43;0300">Jul 1, 2026</time></a>
+
+		<div class="e-content">
+			 <p>After finishing the excellent HBO Max show <em>Hacks</em> recently I was in dire need of something new to watch. I haven&rsquo;t watched too many hospital series, but somehow I ended up selecting <em><a href="https://www.themoviedb.org/tv/250307">The Pitt</a></em> &ndash; and pretty much binged it. 🍿</p>
+<p><em>The Pitt</em> is a show about the understaffed Pittsburgh Trauma Medical Center and how the staff navigates the unexpected patients and events. It is a teaching hospital, so the staff includes medical students of various experience, and the older students help supervise the younger ones. There are a lot of characters, each with their own faults; doctors, students, nurses, and patients alike.</p>
+<p>Each season focuses on a single 12-hour shift so that each episode corresponds to one hour. The &ldquo;previously on the Pitt&rdquo; sections at the start of each episode are genuinely helpful, because there are so many patients so that if one of them has been waiting for their lab results for a couple of hours, it means you might have not seen them in a couple of episodes. So in a sense it&rsquo;s like <em>24</em>, but there is no ominous ticking clock at any stage.</p>
+<p>The show has not been dumbed down too much for the viewers, so that when a patient with, say, a GSW (gun shot wound) comes in, the doctors and nurses go full jargon for quick and effective communication. For example, the staff regularly performs an &ldquo;EFAST&rdquo;, which is never explained. I looked it up though, and it stands for <em>Extended Focused Assessment with Sonography for Trauma</em>, i.e. an ultrasound exam where they look for blood or other anomalies in the chest and abdomen. Here&rsquo;s also a helpful little table of other common medical terms and their meanings:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Heart rate</th>
+<th>Blood pressure</th>
+<th>Blood sugar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Too high</td>
+<td>Tachycardia</td>
+<td>Hypertension</td>
+<td>Hyperglycemia</td>
+</tr>
+<tr>
+<td>Too low</td>
+<td>Bradycardia</td>
+<td>Hypotension</td>
+<td>Hypoglycemia</td>
+</tr>
+</tbody>
+</table>
+<p>If in addition to these you know a few basic medicines, you&rsquo;ll go a long way with the show:</p>
+<ul>
+<li>Ketamine: for sedation and pain relief</li>
+<li>Rocuronium, &ldquo;roc&rdquo;: temporarily paralyzes the muscles</li>
+<li>Lidocaine: local anesthetic for numbing something</li>
+</ul>
+<p>Especially the &ldquo;Ketamine &amp; Roc&rdquo; combo is something they administer almost every time they need to rapidly intubate someone.</p>
+<p>So there you go, a first aid kit of surviving <em>The Pitt</em>! I hope you have a good time with Dr. Michael &ldquo;Robby&rdquo; Robinavitch and his team.</p>
+
+		</div>
+	  </div>
+	
+	  <div class="h-entry">
+		
 			<h1><a href="https://ville.saalo.moi/2026/06/10/star-wars-episode-v-the.html">Star Wars Episode V: The Empire Strikes Back in 100 words</a></h1>
 		
 
@@ -182,12 +230,12 @@
 <p>Now, a word of warning: at least in the European Union we have pretty strict privacy laws in the form of <a href="https://en.wikipedia.org/wiki/General_Data_Protection_Regulation">GDPR</a>. GDPR sets rules on how personal data can be handled. While I don&rsquo;t know if the kind of network information that WiGLE collects counts as personal data per se, I know that people sometimes set their network names to something like &ldquo;Johnson Family WLAN&rdquo;, or &ldquo;Anna&rsquo;s iPhone&rdquo;, and at least names <em>are</em> personal data. That being said, the police of course probably doesn&rsquo;t come knocking if you just observe the networks around you for your own amusement.</p>
 <p>To see what WiGLE knows about your devices or your neighborhood you need to create an account with them. I, for one, also had my own networks and devices removed from WiGLE&rsquo;s database &ndash; there are instructions for that on the site and they&rsquo;ll respect your request, no questions asked. Anyway, for just collecting the data with the app to your phone and for viewing it with my app you don&rsquo;t need an account.</p>
 <p>You can find <a href="https://zeroone3010.github.io/wigle-visualizer/">the app in action here</a> and the <a href="https://github.com/ZeroOne3010/wigle-visualizer">source code is here</a>. Here&rsquo;s an example screenshot:</p>
-<p><img src="https://cdn.uploads.micro.blog/208773/2026/bfbf1b4d1f.jpg" alt="Screenshot of the WiGLE visualizer"></p>
+<p><img src="https://ville.saalo.moi/uploads/2026/bfbf1b4d1f.jpg" alt="Screenshot of the WiGLE visualizer"></p>
 <p>Now, earlier I mentioned I just exported the observations out of the app. That was something of an oversimplification: the app does allow you to export data easily in a very clean <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV format</a>, but the catch is that it&rsquo;s gzip-compressed, which Android doesn&rsquo;t handle too well. I tried installing an app from the Play Store for decompressing these files, but the <a href="https://en.wikipedia.org/wiki/User_experience">UX</a> of the app was so appalling I ended up uninstalling it and, well, vibe-coding my own gzip decompression app as well. 😅</p>
 <p>This one I wanted to be a native Android app. A very simple one for one single purpose: it should do its job and get out of the way. Codex delivered here as well, even setting up a GitHub action to immediately compile the project into a usable installation package whenever commits were merged to main. I was able to get the app to be registered in the operating system as one that could handle gzip files, so when WiGLE offered to export the file, I could just open it in my app and extract the CSV file within. I call this one Gunzip for &ldquo;Un-gzip&rdquo;. As the name sounds like &ldquo;gunship&rdquo;, I iterated a cool icon with Chad for it:</p>
-<p><img src="https://cdn.uploads.micro.blog/208773/2026/8f3a59a957.jpg" alt="App icon that looks like a folder that looks like a helicopter gunship that has a zipper."></p>
+<p><img src="https://ville.saalo.moi/uploads/2026/8f3a59a957.jpg" alt="App icon that looks like a folder that looks like a helicopter gunship that has a zipper."></p>
 <p>This app&rsquo;s <a href="https://github.com/ZeroOne3010/android-gunzip">source code lives here</a> and the app looks like this:</p>
-<p><img src="https://cdn.uploads.micro.blog/208773/2026/16326090f4.jpg" alt="Screenshot of Gunzip"></p>
+<p><img src="https://ville.saalo.moi/uploads/2026/16326090f4.jpg" alt="Screenshot of Gunzip"></p>
 <p>These examples are strong anecdotal evidence that vibe-coding can work in certain contexts extremely well. I don&rsquo;t recall even looking much into the source of either of those apps. These apps were, however, different from <a href="https://ville.saalo.moi/2026/03/27/bluesky-bot-to-report-speeding.html">my previous vibing experience regarding the Bluesky bot</a>: the bot originated as an artisan coding project so I felt proper ownership towards it. It was as much about the building experience itself as about the end result, so there I wanted to understand all the code that went into the app, even and especially when created by some agent. With the visualizer and Gunzip both were just tools and a means to an end, which was to see the networks on a map. There, I didn&rsquo;t care what the code looked like, as long as I got my results and was able to iterate quickly.</p>
 <p>The title of this post refers to <a href="https://en.wikipedia.org/wiki/Wardriving">wardriving, for which there is a good Wikipedia article</a>. Suffice it to say here that the name actually stems from the cult classic hacker movie <em>WarGames</em>!</p>
 <p>Finally, what about that person who published their WiFi credentials as a LEGO QR-code? Their network was not in the WiGLE database, so they can rest easy &ndash; at least until someone comes close to their house with the app on.</p>
@@ -238,7 +286,7 @@
 
 		<div class="e-content">
 			 <p>I&rsquo;ve been tracking the number of visitors in my blog with <a href="https://tinylytics.app/">Tinylytics</a>. I originally went for a while without any analytics, but curiosity got the better of me. I didn&rsquo;t want any heavy enterprise-grade stuff like Google Analytics, but rather some small and independent service, preferably hosted in Europe, so enter Tinylytics. It is pretty prominent in the indie web community, the basic version is inexpensive at $4/month, and it respects the privacy of the guests, so there&rsquo;s a lot to like in it. You get a dashboard that shows you some high level stats like the country and the referrer domain of your guests. My site seems to get the most visits from <a href="https://ville.saalo.moi/2025/03/18/kagi-search.html">Kagi</a>, probably via their Small Web community. If you&rsquo;re running a personal site without analytics, give Tinylytics a go!</p>
-<p><img src="https://cdn.uploads.micro.blog/208773/2026/26dc9ba143.jpg" alt="Screenshot of the Tinylytics overview panel. "></p>
+<p><img src="https://ville.saalo.moi/uploads/2026/26dc9ba143.jpg" alt="Screenshot of the Tinylytics overview panel. "></p>
 
 		</div>
 	  </div>
